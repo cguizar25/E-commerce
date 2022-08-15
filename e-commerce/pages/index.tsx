@@ -1,7 +1,8 @@
 import type { InferGetStaticPropsType } from 'next';
+import getAllProducts from '../framework/shopfiy/product';
 
 const getStaticProps = async () => {
-  const products = [1, 2, 3];
+  const products = await getAllProducts;
 
   return {
     props: {
