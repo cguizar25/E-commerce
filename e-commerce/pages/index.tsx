@@ -10,11 +10,10 @@ export async function getStaticProps() {
     revalidate: 4 * 60 * 60
   }
 }
+
 export default function Home({
   products
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-
-  getAllproducts()
 
   return (
     <div>
