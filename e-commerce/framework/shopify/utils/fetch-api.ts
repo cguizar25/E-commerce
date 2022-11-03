@@ -1,5 +1,3 @@
-import getAllProductQuery from "../utils/queries/get-all-products"
-
 type FetcherParams = {
   query: string
 }
