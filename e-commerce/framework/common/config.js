@@ -1,9 +1,10 @@
 const path = require("path");
 const fs = require("fs")
 const merge = require("deepmerge");
+const prettier = require("prettier");
 
 const withFrameworkConfig = (defaultConfig = {}) => {
-  const framework = "shopify";
+  const framework = defaultConfig?.framework.name;
 
   const frameworkNextConfig = require(path.join("../", framework, "next.config"));
   const config = merge(defaultConfig, frameworkNextConfig);
@@ -16,8 +17,8 @@ const withFrameworkConfig = (defaultConfig = {}) => {
 
   fs.writeFileSync(
    tsPath,
-   JSON.stringify(
-     tsConfig, null, 2
+   prettier.format(
+     JSON.stringify(tsConfig), { parser: "json" }
    )
  )
 
