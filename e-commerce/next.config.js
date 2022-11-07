@@ -2,6 +2,9 @@
 const { withFrameworkConfig } = require("./framework/common/config");
 
 module.exports = withFrameworkConfig({
+  framework: {
+    name: "shopify"
+  },
   reactStrictMode: true,
   swcMinify: true,
   il8n: {
