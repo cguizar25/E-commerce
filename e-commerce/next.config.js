@@ -1,14 +1,12 @@
-/** @type {import('next').NextConfig} */
-const { withFrameworkConfig } = require("./framework/common/config");
+const { withFrameworkConfig } = require("./framework/common/config")
 
 module.exports = withFrameworkConfig({
   framework: {
     name: "shopify_local"
   },
-  reactStrictMode: true,
-  swcMinify: true,
-  il8n: {
+  i18n: {
     locales: ["en-US", "es"],
-    defaultLocale: "en-us"
+    defaultLocale: "en-US"
   }
 })
+console.log("next.config.js", JSON.stringify(module.exports, null, 2))
