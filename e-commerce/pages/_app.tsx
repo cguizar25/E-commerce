@@ -1,5 +1,8 @@
 import { AppProps } from "next/app";
-import { Layout } from "@components/common";
+import { FC } from "react"
+
+const MyApp = ({Component, pageProps}: AppProps & {Component: {Layout: FC}}) => {
+  const Layout = Component.Layout
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
