@@ -38,7 +38,7 @@ export const normalizeProduct = (productNode: ShopifyProduct): Product => {
     path: `/${handle}`,
     slug: handle.replace(/^\/+|\/+$/g,""),
     images: normalizeProductImages(imageConnection),
-    price: normalizeProductPrice(priceRange.minVariantPrice),
+    price: normalizeProductPrice(priceRange.minVariantPrice),.
     ...rest
   }
 
