@@ -1,5 +1,5 @@
 const path = require("path");
-const fs = require("fs")
+const fs = require("fs");
 const merge = require("deepmerge");
 const prettier = require("prettier");
 
@@ -7,7 +7,7 @@ const ALLOWED_FW = ["shopify", "bigcommerce", "shopify_local"];
 const FALLBACK_FW = "shopify";
 
 const withFrameworkConfig = (defaultConfig = {}) => {
-  const framework = defaultConfig?.framework?.name;
+  let framework = defaultConfig?.framework?.name;
 
   if (!framework) {
     throw new Error("The api framework is missing, please add a valid provider!");

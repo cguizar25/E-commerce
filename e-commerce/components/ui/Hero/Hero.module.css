@@ -1,6 +1,5 @@
-
 .root {
-  @apply flex flex-col py-32 justifuu-center;
+  @apply flex flex-col py-32 justify-center;
 
   @screen md {
     @apply flex-row;

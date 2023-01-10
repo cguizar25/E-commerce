@@ -1,9 +1,9 @@
+
 import { FC } from "react";
 import s from "./Layout.module.css";
 
 
-
-const Layout: FC = ({children}) => {
+const Layout: FC = () => {
   return (
     <div className={s.root}>
         <main className="fit">
@@ -12,4 +12,4 @@ const Layout: FC = ({children}) => {
   )
 }
 
-export default Layout
+export default Layout;
