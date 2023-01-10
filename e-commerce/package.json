@@ -10,7 +10,6 @@
     "build:css": "postcss assets/main.css -o assets/main_browser.css"
   },
   "dependencies": {
-    "next": "12.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -22,6 +21,7 @@
     "deepmerge": "^4.2.2",
     "eslint": "8.21.0",
     "eslint-config-next": "12.2.4",
+    "next": "^13.1.1",
     "postcss": "^8.4.19",
     "postcss-cli": "^10.0.0",
     "postcss-nesting": "^10.2.0",
