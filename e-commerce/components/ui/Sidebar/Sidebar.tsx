@@ -3,9 +3,10 @@ import { FC } from 'react';
 interface Props {
   children: any
   isOpen: boolean
+  onClose: () => void
 }
 
-const Sidebar: FC<Props> = ({ children, isOpen }) => {
+const Sidebar: FC<Props> = ({ children, isOpen, onClose }) => {
 
   return (
     <>
