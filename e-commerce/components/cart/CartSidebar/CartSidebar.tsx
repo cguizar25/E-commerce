@@ -2,10 +2,13 @@ import { FC } from 'react';
 import { Items, Cross } from '@components/symbols';
 import cn from "classnames";
 import { useUI } from '@components/ui/context'
+import { log } from 'console';
 
 const CartSidebar: FC = () => {
   const isEmpty = true;
   const { closeSidebar } = useUI();
+
+  console.log("re-rendering CARTSIDEBAR")
 
   const rootClass = cn(
     "h-full flex flex-col",

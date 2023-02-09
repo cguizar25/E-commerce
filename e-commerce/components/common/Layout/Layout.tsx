@@ -8,6 +8,7 @@ import { useUI } from "@components/ui/context";
 
 const Layout: FC = ({c}) => {
   const { isSidebarOpen, closeSidebar } = useUI();
+  console.log("Re-rendering LAYOUT");
   return (
     <div className={s.root}>
       <Navbar />
