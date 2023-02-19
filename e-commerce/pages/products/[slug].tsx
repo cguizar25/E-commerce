@@ -4,7 +4,6 @@ import { getConfig } from "@framework/api/config";
 import { getAllProductsPaths, getProduct } from "@framework/product";
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
-// fetch all of the products slugs
 export const getStaticPaths: GetStaticPaths = async () => {
     const config = getConfig();
     const { products } = await getAllProductsPaths(config);
@@ -21,7 +20,7 @@ export const getStaticProps = async ({
   
   const { product } = await getProduct({
     config,
-    variables: {slug: params?.slug}
+    variables: {slug: params!.slug}
   })
 
   return {
