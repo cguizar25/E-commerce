@@ -20,7 +20,7 @@ export const getStaticProps = async ({
   
   const { product } = await getProduct({
     config,
-    variables: {slug: params!.slug}
+    variables: {slug: params?.slug}
   })
 
   return {
@@ -35,8 +35,7 @@ export default function ProductSlug({
 ) {
   return (
     <div>
-      {product.name}
-      {product.slug}
+      {JSON.stringify(product, null, 2)}
     </div>
   )
 };
