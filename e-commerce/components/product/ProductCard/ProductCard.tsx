@@ -7,13 +7,13 @@ import s from "./ProductCard.module.css";
 interface Props {
   product: Product
   variant?: "simple" | "slim"
-}
+};
 
 const placeholderImage = "/product-image-placeholder.svg";
 const ProductCard: FC<Props> = ({product, variant = "simple"}) => {
 
   return (
-    <Link href={`/products/${product.slug}`}>
+    <Link legacyBehavior href={`/products/${product.slug}`}>
       <a className={s.root}>
         { variant === "slim" ?
           <>
