@@ -23,6 +23,7 @@
     "deepmerge": "^4.2.2",
     "eslint": "8.21.0",
     "eslint-config-next": "12.2.4",
+    "keen-slider": "^6.8.5",
     "next": "^13.1.1",
     "postcss": "^8.4.19",
     "postcss-cli": "^10.0.0",
