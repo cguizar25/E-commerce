@@ -1,6 +1,6 @@
 import React, { FC, Children, isValidElement, useState } from "react";
 import s from "./ProductSlider.module.css";
-import { useKeenSlider } from "keen-slider";
+import useKeenSlider from "keen-slider/react";
 import cn from 'classnames';
 
 const ProductSlider: FC = ({children}) => {
