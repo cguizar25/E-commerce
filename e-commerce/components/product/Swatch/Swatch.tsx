@@ -1,34 +1,34 @@
 import { FC } from "react";
 import s from"./Swatch.module.css";
-import { Mark } from "@components/symbols"
+import { Mark } from "@components/symbols";
+import cn from "classnames";
+import { isDark } from "@lib/color"
 
 interface Props {
   color?: string
   label?: string
+  active?: boolean
   variant?: "size" | "color" | string
   onClick: () => void
-};
+}
 
 
 const Swatch: FC<Props> = ({
-  color, label, variant,
+  color, label, variant, active,
   ...rest
 }) => {
-
+  
   label = label?.toLowerCase()
   variant = variant?.toLocaleLowerCase()
-
-  return (
-    <button
-      style={color ? {backgroundColor: color} : {}}
-      className={s.root} {...rest}>
-      {/* <span>
-        <Check />
-      </span> */}
-      { variant === "size" ? label : null }
-    </button>
+  const rootClassName = cn(
+    s.root,
+    {
+      [s.active]: active,
+      [s.color]: color,
+      [s.size]: variant === "size",
+      [s.dark]: color && isDark(color)
+    }
   )
-}
 
 
 export default Swatch;
