@@ -12,8 +12,12 @@ export const handler = {
     input: { checkoutId }
   }: any) {
     const data = await fetch({...options})
+
+    debugger;
+
     return { data }
   },
+
   useHook: ({useData}: any) => {
     const data = useData()
     return {
