@@ -32,14 +32,13 @@ export type HookFetcherFn<Input, Output, Data> =
   }
   
   export type MutationHook<H extends HookDescriptor = any> = {
-  fetcherOptions: HookFetcherOptions
-  fetcher: HookFetcherFn<
-    H["fetcherInput"],
-    H["fetcherOutput"],
-    H["data"]
-  >
-  useHook(
-    context: MutationHookContext<H["fetcherInput"], H["data"]>
-  ): (input: H["fetcherInput"]) => Promise<H["data"]>
-};
-  
+    fetcherOptions: HookFetcherOptions
+    fetcher: HookFetcherFn<
+      H["fetcherInput"],
+      H["fetcherOutput"],
+      H["data"]
+    >
+    useHook(
+      context: MutationHookContext<H["fetcherInput"], H["data"]>
+    ): () => (input: H["fetcherInput"]) => Promise<H["data"]>
+  }
