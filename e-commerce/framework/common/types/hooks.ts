@@ -4,7 +4,8 @@ import { ApiFetcher, ApiFetcherOptions } from "./api";
 export interface ApiHooks {
   cart: {
     useAddItem: any
-    useCart: any
+    useCart: SWRHook
+    useRemoveItem: MutationHook
   }
 }
 
