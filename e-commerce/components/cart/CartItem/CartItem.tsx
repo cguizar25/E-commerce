@@ -7,6 +7,39 @@ import { Trash, Add, Subtract } from '@components/symbols';
 import { LineItem } from '@common/types/cart';
 import { Swatch } from '@components/product';
 import useRemoveItem from '@framework/cart/use-remove-item';
+import { useUpdateItem } from "@common/cart";
+
+export default useUpdateItem
+
+export const handler = {
+  fetcherOptions: {
+    query: "query { hello }"
+  },
+  async fetcher({
+    input: item,
+    options,
+    fetch
+  }: any) {
+    const { data } = await fetch({
+      ...options,
+      lineItems: [
+        {
+          id: item.id,
+          variantId: item.variantId,
+          quantity: item.quantity ?? 1
+        }
+      ]
+    })
+
+    return data  + "__modified"
+  },
+  useHook: ({ fetch }: any) => () => {
+    return async (input: any) => {
+      const data = await fetch(input)
+      return data
+    }
+  }
+}
 
 const CartItem = ({
   item,
@@ -16,6 +49,7 @@ const CartItem = ({
   currencyCode: string
 }) => {
   const removeItem = useRemoveItem();
+  const updateItem = useUpdateItem();
   const price = (item.variant.price! * item.quantity) || 0;
   const { options } = item;
   return (
@@ -63,7 +97,13 @@ const CartItem = ({
         </div>
         <div className="flex items-center mt-3">
           <button type="button">
-            <Subtract onClick={() => {}}/>
+            <Subtract onClick={() => {
+              updateItem({
+                id: item.id,
+                quantity: --item.quantity,
+                variantId: item.variantId
+              })
+            }}/>
           </button>
           <label>
             <input
@@ -72,12 +112,23 @@ const CartItem = ({
               min={0}
               className={s.quantity}
               value={item.quantity}
-              onChange={() => {}}
-              onBlur={() => {}}
+              onChange={() => {
+                updateItem({
+                  id: item.id,
+                  quantity: ++item.quantity,
+                  variantId: item.variantId
+                })
+              }}
             />
           </label>
           <button type="button">
-            <Add onClick={() => {}}/>
+            <Add onClick={() => {
+              updateItem({
+                id: item.id,
+                quantity: ++item.quantity,
+                variantId: item.variantId
+              })
+            }}/>
           </button>
         </div>
       </div>
