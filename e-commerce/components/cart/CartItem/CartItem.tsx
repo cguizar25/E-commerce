@@ -7,10 +7,8 @@ import { Trash, Add, Subtract } from '@components/symbols';
 import { LineItem } from '@common/types/cart';
 import { Swatch } from '@components/product';
 import useRemoveItem from '@framework/cart/use-remove-item';
-import { useUpdateItem } from "@common/cart";
+import useUpdateItem from '@framework/cart/use-update-item';
 import { ChangeEvent, useState } from 'react';
-
-export default useUpdateItem
 
 export const handler = {
   fetcherOptions: {
@@ -57,11 +55,11 @@ const CartItem = ({
   const price = (item.variant.price! * item.quantity) || 0;
   const { options } = item;
 
-  const handleQuantityChange = async (val: number) => {
+  const handleQuantityChange = (val: number) => {
 
     if (Number.isInteger(val) && val >= 0) {
       setQuantity(val)
-      await updateItem({
+      updateItem({
         id: item.id,
         variantId: item.variantId,
         quantity: val
